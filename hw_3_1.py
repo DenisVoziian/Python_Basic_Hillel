@@ -19,14 +19,11 @@ while calc_status:
         elif operator == '4':
             result = value_1 / value_2
             sign = '/'
+        print(f'{value_1} {sign} {value_2} = {result}')
     except ValueError:
         print("It's not an integer!!!")
-        break
     except ZeroDivisionError:
         print("Impossible to divide by zero!!!")
-        break
-
-    print(f'{value_1} {sign} {value_2} = {result}')
-
-    close_calc = input("Do you still need a calculator:\n1)'y' - Yes\n2)any other - No\n")
-    calc_status = True if close_calc == 'y' else False
+    finally:
+        close_calc = input("Do you still need a calculator:\n1)'y' - Yes\n2)any other - No\n")
+        calc_status = True if close_calc == 'y' else False

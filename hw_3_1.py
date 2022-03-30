@@ -25,5 +25,5 @@ while calc_status:
     except ZeroDivisionError:
         print("Impossible to divide by zero!!!")
     finally:
-        close_calc = input("Do you still need a calculator:\n1)'y' - Yes\n2)any other - No\n")
-        calc_status = True if close_calc == 'y' else False
+        calc_quite = input("Do you still need a calculator:\n1)'y' - Yes\n2)any other - No\n")
+        calc_status = True if calc_quite == 'y' else False

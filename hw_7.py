@@ -114,9 +114,7 @@ print(my_symbol_list_12)
 
 my_str_13_1 = "aaaasdf1"
 my_str_13_2 = "asdfff2"
-my_str_list_13_1 = list(my_str_13_1)
-my_symbol_list_13_1 = [symbol for symbol in my_str_list_13_1 if my_str_list_13_1.count(symbol) == 1]
-my_str_list_13_2 = list(my_str_13_2)
-my_symbol_list_13_2 = [symbol for symbol in my_str_list_13_2 if my_str_list_13_2.count(symbol) == 1]
-my_unique_symbol_list_13 = list(set(my_symbol_list_13_1) & set(my_symbol_list_13_2))
+my_str_set_13 = set(my_str_13_1) & set(my_str_13_2)
+my_unique_symbol_list_13 = [symbol for symbol in my_str_set_13 if (my_str_13_1 + my_str_13_2).count(symbol) == 2]
 print(my_unique_symbol_list_13)
+

@@ -96,8 +96,8 @@ print(str_list_10)
 # которые встречаются в строке ТОЛЬКО ОДИН раз.
 
 my_str_11 = "asdfasewasdfasadfqwraakip"
-my_str_list_11 = list(my_str_11)
-my_symbol_list_11 = [symbol for symbol in my_str_list_11 if my_str_list_11.count(symbol) == 1]
+my_str_list_11 = set(my_str_11)
+my_symbol_list_11 = [symbol for symbol in my_str_list_11 if my_str_11.count(symbol) == 1]
 print(my_symbol_list_11)
 
 # 12. Даны две строки. Создать список в который поместить те символы,

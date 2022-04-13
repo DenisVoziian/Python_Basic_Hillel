@@ -1,15 +1,13 @@
-# Для задания 1-7 за основу можете взять код из предідущих ДЗ.
-#
+from random import choice, randint
+from string import ascii_lowercase
+
+
 # 1. Написать функцию которой передается один параметр - список строк my_list.
 # Функция возвращает новый список в котором содержаться
 # элементы из my_list по следующему правилу:
 # Если строка стоит на нечетном месте в my_list, то ее заменить на
 # перевернутую строку. "qwe" на "ewq".
 # Если на четном - оставить без изменения.
-
-from random import choice, randint
-from string import ascii_lowercase
-
 
 def get_flip_even_index_list(input_list):
     new_list = []

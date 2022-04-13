@@ -71,8 +71,8 @@ print(new_my_list_4)
 
 
 def get_unique_smbl_from_list(input_list):
-    str_set = set(input_list)
-    new_list = [symbol for symbol in str_set if input_list.count(symbol) == 1]
+    symbol_set = set(input_list)
+    new_list = [symbol for symbol in symbol_set if input_list.count(symbol) == 1]
     return new_list
 
 
@@ -80,10 +80,22 @@ my_str_5 = "asdfasewasdfasadfqwraakip"
 new_my_list_5 = get_unique_smbl_from_list(my_str_5)
 print(new_my_list_5)
 
+
 # 6. Написать функцию которой передается два параметра - две строки.
 # Функция возвращает список в который поместить те символы,
 # которые есть в обеих строках хотя бы раз.
-#
+
+
+def get_duplicate_symbol_in_lists(input_list_1, input_list_2):
+    new_list = list(set(input_list_1) & set(input_list_2))
+    return new_list
+
+
+my_str_6_1 = "asdfasewasdfasadfqwraakip"
+my_str_6_2 = "kejgfkwengi2utiweiterwtjha"
+new_my_list_6 = get_duplicate_symbol_in_lists(my_str_6_1, my_str_6_2)
+print(new_my_list_6)
+
 # 7. Написать функцию которой передается два параметра - две строки.
 # Функция возвращает список в который поместить те символы, которые есть в обеих строках,
 # но в каждой только по одному разу.

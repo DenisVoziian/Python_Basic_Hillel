@@ -7,6 +7,9 @@
 # перевернутую строку. "qwe" на "ewq".
 # Если на четном - оставить без изменения.
 
+from random import choice, randint
+from string import ascii_lowercase
+
 
 def get_flip_even_index_list(input_list):
     new_list = []
@@ -113,6 +116,7 @@ my_str_13_2 = "asdfff2"
 new_my_list_7 = get_unique_symbol_in_lists(my_str_13_1, my_str_13_2)
 print(new_my_list_7)
 
+
 # 8. Даны списки names и domains (создать самостоятельно).
 # Написать функцию для генерирования e-mail в формате:
 # фамилия.число_от_100_до_999@строка_букв_длинной_от_5_до_7_символов.домен
@@ -125,3 +129,19 @@ print(new_my_list_7)
 # e_mail = create_email(domains, names)
 # print(e_mail)
 # >>>miller.249@sgdyyur.com
+
+
+def create_email(domain, name):
+    name = choice(name)
+    numb = randint(100, 999)
+    domain_name_length = randint(5, 7)
+    domain_name = ''.join([choice(ascii_lowercase) for _ in range(domain_name_length)])
+    domain = choice(domain)
+    email = f'{name}.{numb}@{domain_name}.{domain}'
+    return email
+
+
+names = ["king", "miller", "kean"]
+domains = ["net", "com", "ua"]
+e_mail = create_email(domains, names)
+print(e_mail)

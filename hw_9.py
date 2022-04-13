@@ -96,10 +96,23 @@ my_str_6_2 = "kejgfkwengi2utiweiterwtjha"
 new_my_list_6 = get_duplicate_symbol_in_lists(my_str_6_1, my_str_6_2)
 print(new_my_list_6)
 
+
 # 7. Написать функцию которой передается два параметра - две строки.
 # Функция возвращает список в который поместить те символы, которые есть в обеих строках,
 # но в каждой только по одному разу.
-#
+
+
+def get_unique_symbol_in_lists(input_list_1, input_list_2):
+    symbol_set = set(input_list_1) & set(input_list_2)
+    new_list = [symbol for symbol in symbol_set if (input_list_1 + input_list_2).count(symbol) == 2]
+    return new_list
+
+
+my_str_13_1 = "aaaasdf1"
+my_str_13_2 = "asdfff2"
+new_my_list_7 = get_unique_symbol_in_lists(my_str_13_1, my_str_13_2)
+print(new_my_list_7)
+
 # 8. Даны списки names и domains (создать самостоятельно).
 # Написать функцию для генерирования e-mail в формате:
 # фамилия.число_от_100_до_999@строка_букв_длинной_от_5_до_7_символов.домен

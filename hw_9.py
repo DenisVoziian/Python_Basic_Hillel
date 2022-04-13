@@ -109,9 +109,9 @@ def get_unique_symbol_in_lists(input_list_1, input_list_2):
     return new_list
 
 
-my_str_13_1 = "aaaasdf1"
-my_str_13_2 = "asdfff2"
-new_my_list_7 = get_unique_symbol_in_lists(my_str_13_1, my_str_13_2)
+my_str_7_1 = "aaaasdf1"
+my_str_7_2 = "asdfff2"
+new_my_list_7 = get_unique_symbol_in_lists(my_str_7_1, my_str_7_2)
 print(new_my_list_7)
 
 

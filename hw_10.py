@@ -75,11 +75,12 @@ def get_date_modified_from_file(filename):
     mod_date_key = date_key + '_modified'
     for date in mod_date_list:
         mod_date = date[date_key].split()
-        if len(mod_date) == 3:
+        mod_date_len = len(mod_date)
+        if mod_date_len == 3:
             mod_date[0] = mod_date[0].strip(ascii_letters)
             strp_time_format = '%d %B %Y'
             strf_time_format = '%d/%m/%Y'
-        elif len(mod_date) == 2:
+        elif mod_date_len == 2:
             strp_time_format = '%B %Y'
             strf_time_format = '%m/%Y'
         mod_date = ' '.join(mod_date)

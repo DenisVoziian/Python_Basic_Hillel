@@ -70,23 +70,22 @@ print(date_list)
 
 
 def get_date_modified_from_file(filename):
-    data_from_file = get_lines_from_file(filename)
-    modified_date_list = []
-    for line in data_from_file:
-        if line and '-' in line:
-            date_1 = line.split(' - ')[0]
-            modified_date_list.append({'date_original': date_1})
-            mod_data = date_1.split()
-            if len(mod_data) == 3:
-                mod_data[0] = mod_data[0].strip(ascii_letters)
-                mod_data = ' '.join(mod_data)
-                date_dt_format = datetime.strptime(mod_data, '%d %B %Y')
-                modified_date_list.append({'date_modified': date_dt_format.strftime('%d/%m/%Y')})
-            elif len(mod_data) == 2:
-                mod_data = ' '.join(mod_data)
-                date_dt_format = datetime.strptime(mod_data, '%B %Y')
-                modified_date_list.append({'date_modified': datetime.strftime(date_dt_format, '%m/%Y')})
-    return modified_date_list
+    mod_date_list = get_date_dict_from_file(filename)
+    date_key = 'date'
+    mod_date_key = date_key + '_modified'
+    for date in mod_date_list:
+        mod_data = date[date_key].split()
+        if len(mod_data) == 3:
+            mod_data[0] = mod_data[0].strip(ascii_letters)
+            strp_time_format = '%d %B %Y'
+            strf_time_format = '%d/%m/%Y'
+        elif len(mod_data) == 2:
+            strp_time_format = '%B %Y'
+            strf_time_format = '%m/%Y'
+        mod_data = ' '.join(mod_data)
+        date_dt_format = datetime.strptime(mod_data, strp_time_format)
+        date[mod_date_key] = date_dt_format.strftime(strf_time_format)
+    return mod_date_list
 
 
 date_list = get_date_modified_from_file(authors_file)

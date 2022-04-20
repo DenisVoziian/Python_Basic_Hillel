@@ -11,14 +11,14 @@ from utils.files import create_empty_file, create_dir
 path = 'resources'
 
 
-def get_filenames_from_dir(input_dict: str) -> dict:
-    dir_list = os.listdir(input_dict)
+def get_filenames_from_dir(dir_name: str) -> dict:
+    dir_list = os.listdir(dir_name)
     file_list = []
     sub_dir_list = []
     for file_name in dir_list:
-        if os.path.isfile(os.path.join(input_dict, file_name)):
+        if os.path.isfile(os.path.join(dir_name, file_name)):
             file_list.append(file_name)
-        elif os.path.isdir(os.path.join(input_dict, file_name)):
+        elif os.path.isdir(os.path.join(dir_name, file_name)):
             sub_dir_list.append(file_name)
     return {'filenames': file_list, 'dirnames': sub_dir_list}
 
@@ -48,17 +48,17 @@ print(f'Task 2: {sort_dict =}')
 # В зависимости от того, что функция получила (имя файла или имя папки) - записать его в соответствующий список
 # и вернуть обновленный словарь.
 
-file_name_str = "names_1111txt"
+name_str = "names_1111txt"
 
 
-def add_filename_to_dict(input_dict: dict, file_name: str) -> dict:
+def add_str_to_dict(input_dict: dict, file_name: str) -> dict:
     file_key = 'filenames'
     dir_key = 'dirnames'
     input_dict[file_key].append(file_name) if '.' in file_name else input_dict[dir_key].append(file_name)
     return input_dict
 
 
-new_dict = add_filename_to_dict(dir_dict, file_name_str)
+new_dict = add_str_to_dict(dir_dict, name_str)
 print(f'Task 3: {new_dict =}')
 
 # 4* (*сдавать не обязательно, но если будете сдавать, то ошибки будут учитываться тоже).

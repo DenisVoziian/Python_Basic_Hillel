@@ -24,7 +24,7 @@ def get_filenames_from_dir(input_dict: str) -> dict:
 
 
 dir_dict = get_filenames_from_dir(path)
-print(dir_dict)
+print(f'Task 1: {dir_dict =}')
 
 # 2. Написать функцию, которая получает два параметра - словарь, описанный в пункте 1
 # и булевое значение (True/False) - можно сделать параметром по умолчанию.
@@ -40,8 +40,8 @@ def sort_dict_by_alpha(input_dict: dict, sort_type: bool) -> dict:
     return input_dict
 
 
-dict_sort_by_value = sort_dict_by_alpha(dir_dict, asc_sort)
-print(dir_dict)
+sort_dict = dict_sort_by_value = sort_dict_by_alpha(dir_dict, asc_sort)
+print(f'Task 2: {sort_dict =}')
 
 # 3. Написать функцию, которая получает два параметра - словарь, описанный в пункте 1 и строку, которая может быть
 # или именем файла, или именем папки. (В имени файла должна быть точка).
@@ -59,7 +59,7 @@ def add_filename_to_dict(input_dict: dict, file_name: str) -> dict:
 
 
 new_dict = add_filename_to_dict(dir_dict, file_name_str)
-print(new_dict)
+print(f'Task 3: {new_dict =}')
 
 # 4* (*сдавать не обязательно, но если будете сдавать, то ошибки будут учитываться тоже).
 # Написать функцию, которая получает два параметра - словарь, описанный в пункте 1 и имя директории.
@@ -80,4 +80,5 @@ def add_absent_file_from_dict(input_dict: dict, dir_name: str) -> None:
 
 
 add_absent_file_from_dict(dir_dict, child_dir_name)
-print(get_filenames_from_dir(child_dir_name))
+created_dict = get_filenames_from_dir(child_dir_name)
+print(f'Task 4: {created_dict =}')

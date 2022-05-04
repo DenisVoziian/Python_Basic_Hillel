@@ -30,7 +30,7 @@ class WorkWithFolder:
     # Функция возвращает тот же словарь, но с отсортированными именами файлов и папок в соответствующих списках.
     # Булевое значение True означает, что порядок сортировки алфавитный, False - обратный порядок.
 
-    def get_sorted_objects_from_dir(self, sort_type: bool) -> dict:
+    def sorted_objects_from_dir(self, sort_type: bool) -> dict:
         for value in self.objects_dict.values():
             value.sort() if sort_type else value.sort(reverse=True)
         return self.objects_dict
@@ -67,21 +67,21 @@ path = 'resources'
 worker = WorkWithFolder(path)
 
 # 2
-obj_dict = worker.get_objects_from_dir()
+obj_dict = worker.objects_dict
 print(f'Task 1: {obj_dict =}')
 
 # 2
-sort_type = False  # False - DESC
-sort_dict = worker.get_sorted_objects_from_dir(sort_type)
-print(f'Task 2: {sort_dict =}')
+sort_alphabet_type = False  # False - DESC
+worker.sorted_objects_from_dir(sort_alphabet_type)
+print(f'Task 2: {obj_dict =}')
 
 # 3
 name_str = "names_1111txt"
-change_dict = worker.add_str_to_dict(name_str)
-print(f'Task 3: {change_dict =}')
+worker.add_str_to_dict(name_str)
+print(f'Task 3: {obj_dict =}')
 
 # 4
 child_dir_name = 'temp'
 worker.add_absent_object_from_dict(child_dir_name)
-created_dict = WorkWithFolder(child_dir_name).get_objects_from_dir()
-print(f'Task 4: {created_dict =}')
+child_obj_dict = WorkWithFolder(child_dir_name).objects_dict
+print(f'Task 4: {child_obj_dict =}')

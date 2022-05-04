@@ -52,7 +52,7 @@ class WorkWithFolder:
     # Функция проверяет соответствие полученного словаря и реальной файловой системы в полученной папке и,
     # если надо, создает нужные папки и пустые файлы, в соответствии со структурой словаря.
 
-    def add_absent_file_from_dict(self, dir_name: str) -> None:
+    def add_absent_object_from_dict(self, dir_name: str) -> None:
         file_in_child_dir = WorkWithFolder(dir_name).get_objects_from_dir()
         absent_file = list(set(self.objects_dict['filenames']) - set(file_in_child_dir['filenames']))
         absent_dir = list(set(self.objects_dict['dirnames']) - set(file_in_child_dir['dirnames']))
@@ -82,6 +82,6 @@ print(f'Task 3: {change_dict =}')
 
 # 4
 child_dir_name = 'temp'
-worker.add_absent_file_from_dict(child_dir_name)
+worker.add_absent_object_from_dict(child_dir_name)
 created_dict = WorkWithFolder(child_dir_name).get_objects_from_dir()
 print(f'Task 4: {created_dict =}')

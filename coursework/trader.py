@@ -97,8 +97,8 @@ args.add_argument("operation_type", type=str)
 args.add_argument("amount", nargs="?", default=0)
 args = vars(args.parse_args())
 
-config_path = "config.json"
-system_status_path = "system_status.json"
+config_path = path.join("config.json")
+system_status_path = path.join("system_status.json")
 
 trader = Trader(config_path, system_status_path)
 trader.make_operation(args)

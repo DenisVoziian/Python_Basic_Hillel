@@ -1,32 +1,28 @@
+from os import path
 from random import uniform
 from argparse import ArgumentParser
-import json
 
-
-def get_dict_from_json(json_path: str) -> dict:
-    with open(json_path, 'r') as json_file:
-        current_status_dict = json.load(json_file)
-    return current_status_dict
-
-
-def update_json(json_path: str, input_dict: dict) -> None:
-    with open(json_path, 'w') as json_file:
-        json.dump(input_dict, json_file, indent=2)
+from utils.files import get_dict_from_json, update_json
 
 
 class Trader:
     def __init__(self, config: str, system_status: str) -> None:
         self.config = config_path
-        self.system_status = system_status
         self.default_status = get_dict_from_json(config)
+        self.system_status = system_status
+        self.configurate_system_file()
         self.current_status = get_dict_from_json(system_status)
         self.current_rate = round(self.current_status['exchange_rate'], 2)
         self.current_balance_uah = round(self.current_status['balance_uah'], 2)
         self.current_balance_usd = round(self.current_status['balance_usd'], 2)
         self.current_delta = round(self.current_status['delta'], 2)
 
-    def update_status(self):
+    def update_status(self) -> None:
         update_json(self.system_status, self.current_status)
+
+    def configurate_system_file(self):
+        if not path.exists(self.system_status):
+            update_json(self.system_status, self.default_status)
 
     def get_current_rate(self) -> None:
         print(f"Current rate: {self.current_rate} UAH")

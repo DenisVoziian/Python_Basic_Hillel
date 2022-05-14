@@ -32,14 +32,14 @@ class Trader:
 
     def buy(self, buy_usd: float) -> None:
         required_uah = round(buy_usd * self.current_rate, 2)
-        if required_uah < self.current_status['balance_uah']:
+        if required_uah <= self.current_status['balance_uah']:
             self.current_status['balance_uah'] -= required_uah
             self.current_status['balance_usd'] += buy_usd
         else:
             print(f"UNAVAILABLE, REQUIRED BALANCE UAH {required_uah}, AVAILABLE {self.current_status['balance_uah']}")
 
     def sell(self, sell_usd: float) -> None:
-        if sell_usd < self.current_status['balance_usd']:
+        if sell_usd <= self.current_status['balance_usd']:
             self.current_status['balance_uah'] += round(sell_usd * self.current_rate, 2)
             self.current_status['balance_usd'] -= sell_usd
         else:
